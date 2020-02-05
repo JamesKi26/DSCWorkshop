@@ -1,19 +1,30 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 
-export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-    </View>
-  );
-}
+import { createAppContainer } from "react-navigation";
+import { createStackNavigator } from "react-navigation-stack";
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+import Screen1Screen from "./Components/Screen1";
+
+
+
+class App extends Component{
+ render(){
+   return <AppContainer/>
+ } 
+}
+export default App
+const AppSwitchNavigator = createStackNavigator(
+  {
+    Screen1: {screen: Screen1Screen, navigationOptions: { headerShown: false } },
+    
+
   },
-});
+  {
+    headerMode: "none",
+    navigationOptions:{headerVisible: false,},
+    initialRouteName: "Screen1",
+    headerMode: "float"
+  }
+)
+const AppContainer =  createAppContainer(AppSwitchNavigator);
