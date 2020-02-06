@@ -5,7 +5,7 @@ import { createAppContainer } from "react-navigation";
 import { createStackNavigator } from "react-navigation-stack";
 
 import Screen1Screen from "./Components/Screen1";
-
+import Screen2Screen from "./Components/Screen2";
 
 
 class App extends Component{
@@ -14,10 +14,11 @@ class App extends Component{
  } 
 }
 export default App
+
 const AppSwitchNavigator = createStackNavigator(
   {
     Screen1: {screen: Screen1Screen, navigationOptions: { headerShown: false } },
-    
+    Screen2: {screen: Screen2Screen, navigationOptions: { headerShown: false } },
 
   },
   {
