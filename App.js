@@ -1,17 +1,28 @@
 import React, { Component } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
-
 import { createAppContainer } from "react-navigation";
 import { createStackNavigator } from "react-navigation-stack";
+import ApiKeys from "./Constants/APIKeys"
+import * as firebase from "firebase"
+
 
 import Screen1Screen from "./Components/Screen1";
 import Screen2Screen from "./Components/Screen2";
 
 
+
 class App extends Component{
- render(){
-   return <AppContainer/>
- } 
+  constructor(props) {
+    super(props)
+    this.state = {
+    }
+
+    // Initialize firebase...
+    if (!firebase.apps.length) { firebase.initializeApp(ApiKeys.FirebaseConfig) }
+  }
+  render(){
+    return <AppContainer/>
+  } 
 }
 export default App
 

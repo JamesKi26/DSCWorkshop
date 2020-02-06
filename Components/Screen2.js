@@ -6,8 +6,8 @@ import { createAppContainer } from "react-navigation";
 import { createStackNavigator } from "react-navigation-stack";
 
 import { screenStyles } from "../StyleSheets/ScreenStyles";
-
-
+import firebase from "firebase";
+import 'firebase/firestore';
 
 
 export default class Screen2 extends Component {
@@ -15,12 +15,22 @@ export default class Screen2 extends Component {
     constructor(props){
         super(props);
         this.state = {
-            todoNode:  this.props.navigation.state.params.todoListArg,
+            todoList:  this.props.navigation.state.params.todoListArg,
         }
     }
 
     componentDidMount(){
-        alert(this.state.todoNode);
+        alert(this.state.todoList);
+
+        const dbh = firebase.firestore();
+        
+
+        for(var i = 0; i < this.state.todoList.length; i++){
+            dbh.collection("response").doc(i.toString()).set({
+                item: this.state.todoList[i]
+            });
+        }
+
     }
     render(){
         return(
