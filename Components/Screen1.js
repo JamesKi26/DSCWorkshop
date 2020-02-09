@@ -10,6 +10,7 @@ import { screenStyles } from "../StyleSheets/ScreenStyles";
 
 
 export default class Screen1 extends Component {
+    //constructor 
     constructor(props){
         super(props);
         this.state = {

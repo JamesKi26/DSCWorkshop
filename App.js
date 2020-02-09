@@ -7,8 +7,19 @@ import { createStackNavigator } from "react-navigation-stack";
 import Screen1Screen from "./Components/Screen1";
 import Screen2Screen from "./Components/Screen2";
 
+import ApiKeys from "./Constants/APIKeys";
+import * as firebase from "firebase";
+
 
 class App extends Component{
+  constructor(props){
+    super(props)
+
+    if(!firebase.apps.length){
+      firebase.initializeApp(ApiKeys.FirebaseConfig);
+    }
+  }
+
  render(){
    return <AppContainer/>
  } 
